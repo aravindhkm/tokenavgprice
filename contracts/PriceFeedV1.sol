@@ -153,7 +153,7 @@ contract PriceFeedV1 is Initializable, PausableUpgradeable, OwnableUpgradeable {
     ) external yearSlot whenNotPaused{
          require(DateTimeLibrary.isValidDate(year,month,day),"Time is invalid");
         _prices[asset][year].update(price,uint64(DateTimeLibrary.timestampFromDate(year,month,day)));
-        console.log("Current Year", getCurrentYear());
+        // console.log("Current Year", getCurrentYear());
         emit submitPriceEvent(asset,price,block.timestamp);
     }
 
